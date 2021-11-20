@@ -14,6 +14,7 @@ const ImageCard = ({ image }) => {
 								src={image.urls.regular}
 								alt={image.description}
 								ref={image.imageRef}
+								// style={{ height: 300 }}
 							/>
 						</div>
 						{/* <div className="content">

@@ -9,11 +9,14 @@ function Home() {
 	const [images, setImages] = useState();
 
 	const onSearchSubmit = async (term) => {
-		const response = await Unsplash.get("search/photos?page=5&per_page=30&", {
-			params: {
-				query: term,
-			},
-		});
+		const response = await Unsplash.get(
+			"search/photos?page=5&per_page=30&w=3000&fit=max&",
+			{
+				params: {
+					query: term,
+				},
+			}
+		);
 		console.log(response);
 		setImages(response.data.results);
 	};

@@ -1,35 +1,55 @@
 /** @format */
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 function Details() {
-    const { id } = useParams();
+	const { id } = useParams();
+	const [details, setDetails] = useState(null);
+
+	useEffect(() => {
+		fetch(
+			`https://api.unsplash.com/photos/` +
+				id +
+				`?client_id=CZl0NjZ8Wkzj4DCy8TuO7bYe5_EZfZN9ascpEgOZCeE`
+		)
+			.then((res) => {
+				return res.json();
+			})
+			.then((data) => {
+				setDetails(data);
+				console.log(details);
+			});
+		// eslint-disable-next-line
+	}, []);
 	return (
 		<div className="ui container" style={{ marginTop: "15px" }}>
-			<Link to="/">
-				<i class="arrow left icon"></i> Go Back
-			</Link>
-			<div className="ui card">
-				<div className="image">
-					<img src="/images/avatar2/large/kristy.png" />
-				</div>
-				<div className="content">
-					<a className="header">Kristy</a>
-					<div className="meta">
-						<span className="date">Joined in 2013</span>
+			{details ? (
+				<div>
+					<Link to="/">
+						<i className="arrow left icon"></i> Go Back
+					</Link>
+					<div className="ui card">
+						<div className="image">
+							<img src={details.urls.regular} alt={details.description} />
+						</div>
+						<div className="content">
+							<Link to="/">
+								<p className="header left floated">{details.description}</p>
+							</Link>
+							<span className="right floated">
+								<i className="heart filled like icon"></i>
+								{details.likes} likes
+							</span>
+						</div>
+						<div className="content">
+							<div className="description">{details.alt_description}</div>
+						</div>
 					</div>
-					<div className="description">
-						Kristy is an art director living in New York.
-					</div>
 				</div>
-				<div className="extra content">
-					<a>
-						<i className="user icon"></i>
-						22 Friends
-					</a>
-				</div>
-			</div>
+			) : (
+				<p>No data available</p>
+			)}
 		</div>
 	);
 }
