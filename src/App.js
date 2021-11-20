@@ -1,20 +1,18 @@
 /** @format */
-import React, { useState } from "react";
-import SearchBar from "./components/SearchBar";
-import ImageList from "./components/ImageList";
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import Details from "./pages/Details";
+import Home from "./pages/Home";
 
-function App() {
-	const [images, setImages] = useState();
-
-	const onSearchSubmit = async (term) => {
-		alert(term);
-	};
+const App = () => {
 	return (
 		<div className="ui container" style={{ marginTop: "15px" }}>
-			<SearchBar onSearchSubmit={onSearchSubmit} />
-			<ImageList />
+			<Routes>
+				<Route path="/" element={<Home />} />
+				<Route path="/details/:id" element={<Details />} />
+			</Routes>
 		</div>
 	);
-}
+};
 
 export default App;

@@ -1,11 +1,16 @@
-import React from 'react'
+/** @format */
 
-function ImageList() {
-    return (
-        <div>
-            
-        </div>
-    )
-}
+import React from "react";
+import ImageCard from "./ImageCard";
 
-export default ImageList
+const ImageList = ({ images }) => {
+	return (
+		<div className="ui grid">
+			{images.map((image) => (
+				<ImageCard key={image.id} image={image} />
+			))}
+		</div>
+	);
+};
+
+export default ImageList;
