@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+/** @format */
+
+import SearchBar from "./components/SearchBar";
+import ImageList from "./components/ImageList";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const onSearchSubmit = async (term) => {
+		alert(term);
+	};
+	return (
+		<div className="ui container" style={{ marginTop: "15px" }}>
+			<SearchBar onSearchSubmit={onSearchSubmit} />
+			<ImageList />
+		</div>
+	);
 }
 
 export default App;
