@@ -12,11 +12,12 @@ function SearchBar({ onSearchSubmit }) {
 		<div className="ui segment">
 			<form className="ui form" onSubmit={onFormSubmit}>
 				<div className="field">
-					<label>Image search</label>
+					<p>Search Image</p>
 					<input
 						type="text"
 						onChange={(e) => setTerm(e.target.value)}
 						name="term"
+						placeholder="Try like : Cars ,Car ,Dog ,Plane ..............."
 					/>
 				</div>
 			</form>

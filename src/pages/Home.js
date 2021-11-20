@@ -17,7 +17,6 @@ function Home() {
 				},
 			}
 		);
-		console.log(response);
 		setImages(response.data.results);
 	};
 	return (

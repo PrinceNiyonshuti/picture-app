@@ -18,7 +18,6 @@ function Details() {
 			})
 			.then((data) => {
 				setDetails(data);
-				console.log(details);
 			});
 		// eslint-disable-next-line
 	}, []);
@@ -29,9 +28,9 @@ function Details() {
 					<Link to="/">
 						<i className="arrow left icon"></i> Go Back
 					</Link>
-					<div className="ui card">
+					<div className="ui card ">
 						<div className="image">
-							<img src={details.urls.regular} alt={details.description} />
+							<img src={details.urls.full} alt={details.description} />
 						</div>
 						<div className="content">
 							<Link to="/">

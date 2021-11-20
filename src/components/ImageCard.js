@@ -11,15 +11,13 @@ const ImageCard = ({ image }) => {
 					<div className="card">
 						<div className="image">
 							<img
+								className="ui bordered image"
 								src={image.urls.regular}
 								alt={image.description}
 								ref={image.imageRef}
-								// style={{ height: 300 }}
+								style={{ height: 300 }}
 							/>
 						</div>
-						{/* <div className="content">
-						<div className="description">{image.alt_description}</div>
-					</div> */}
 					</div>
 				</div>
 			</Link>
